@@ -18,7 +18,7 @@ import { AuthProvider } from './middleware/AuthProvider.jsx';
 
 function App() {
     const location = useLocation();
-    const isAdminPage = location.pathname.startsWith('/admin');
+    const isAdminPage = location.pathname.startsWith('/cart');
     const showCarousel = location.pathname === '/' || location.pathname === '/market';
     const showSidebar = location.pathname === '/market';
 
