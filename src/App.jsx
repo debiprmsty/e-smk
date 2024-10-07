@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Sidebar from './components/Sidebar.jsx';
 import SidebarAdmin from './components/admincomps/SidebarAdmin.jsx';
@@ -42,7 +42,7 @@ function App() {
 
     return (
         <AuthProvider>
-            <Router>
+            <>
                 {isAdminPage ? (
                     <div className="flex flex-col min-h-screen">
                         <HeaderAdmin toggleSidebar={toggleSidebar} />
@@ -69,18 +69,17 @@ function App() {
                             )}
                             <div className={`flex-1 ${location.pathname !== "/auth/login" && !showCarousel ? 'p-4' : ''} order-2 md:order-none`}>
                                 <Routes>
-                                    <Route path="/" element={<Home />} />
-                                    <Route path="/market" element={<ProductGrid selectedCategory={selectedCategory} searchTerm={searchTerm} onCategorySelect={handleSelectCategory} />} />
-                                    <Route path="/product/:id" element={<ProductDetail />} />
-                                    <Route path="/cart" element={<Cart />} />
+                                    <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+                                    <Route path="/market" element={<ProtectedRoute><ProductGrid selectedCategory={selectedCategory} searchTerm={searchTerm} onCategorySelect={handleSelectCategory} /></ProtectedRoute>} />
+                                    <Route path="/product/:id" element={<ProtectedRoute><ProductDetail /></ProtectedRoute>} />
+                                    <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
                                     <Route path="/auth/login" element={<Login />} />
-                                    <Route path="*" element={<div>Page Not Found</div>} />
                                 </Routes>
                             </div>
                         </div>
                     </div>
                 )}
-            </Router>
+            </>
         </AuthProvider>
     );
 }
