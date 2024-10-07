@@ -50,9 +50,9 @@ function App() {
                             <SidebarAdmin isSidebarVisible={isSidebarVisible} toggleSidebar={toggleSidebar} />
                             <div className="flex-1">
                                 <Routes>
-                                    <Route path="/admin" element={<ProtectedRoute><HomeAdmin /></ProtectedRoute>} />
-                                    <Route path="/admin/product" element={<ProtectedRoute><ProductAdmin /></ProtectedRoute>} />
-                                    <Route path="/admin/category" element={<ProtectedRoute><CategoryAdmin /></ProtectedRoute>} />
+                                    <Route path="/" element={<ProtectedRoute><HomeAdmin /></ProtectedRoute>} />
+                                    <Route path="/product" element={<ProtectedRoute><ProductAdmin /></ProtectedRoute>} />
+                                    <Route path="/category" element={<ProtectedRoute><CategoryAdmin /></ProtectedRoute>} />
                                 </Routes>
                             </div>
                         </div>
