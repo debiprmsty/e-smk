@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Sidebar from './components/Sidebar.jsx';
 import SidebarAdmin from './components/admincomps/SidebarAdmin.jsx';
@@ -18,7 +18,7 @@ import { AuthProvider } from './middleware/AuthProvider.jsx';
 
 function App() {
     const location = useLocation();
-    const isAdminPage = location.pathname === '/admin';
+    const isAdminPage = location.pathname.startsWith('/admin'); // Change to startsWith to catch all /admin paths
     const showCarousel = location.pathname === '/' || location.pathname === '/market';
     const showSidebar = location.pathname === '/market';
 
@@ -53,6 +53,7 @@ function App() {
                                     <Route path="/admin" element={<ProtectedRoute><HomeAdmin /></ProtectedRoute>} />
                                     <Route path="/admin/product" element={<ProtectedRoute><ProductAdmin /></ProtectedRoute>} />
                                     <Route path="/admin/category" element={<ProtectedRoute><CategoryAdmin /></ProtectedRoute>} />
+                                    <Route path="*" element={<Navigate to="/admin" />} /> {/* Add a wildcard route */}
                                 </Routes>
                             </div>
                         </div>
@@ -74,6 +75,7 @@ function App() {
                                     <Route path="/product/:id" element={<ProtectedRoute><ProductDetail /></ProtectedRoute>} />
                                     <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
                                     <Route path="/auth/login" element={<Login />} />
+                                    <Route path="*" element={<Navigate to="/" />} /> {/* Add a wildcard route for non-admin pages */}
                                 </Routes>
                             </div>
                         </div>
