@@ -59,7 +59,7 @@ function Navbar({ onSearch }) {
                         </div>
 
                         <div className="flex items-center">
-                            <Link to="/cart" className="relative">
+                            <Link to="/admin" className="relative">
                                 <FiShoppingCart className="w-6 h-6 text-gray-800" />
                                 {/* Optional: Add a badge for the number of items in the cart */}
                                 {/* <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">
