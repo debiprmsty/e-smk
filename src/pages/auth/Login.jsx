@@ -40,7 +40,7 @@ function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-gray-800 to-gray-500">
+    <div className="flex justify-center items-center h-screen bg-green-500">
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-white shadow-lg">
         <h1 className="text-2xl font-bold text-center text-gray-800">Login E-SMK</h1>
         {error && <p className="text-red-500 text-center">{error}</p>} {/* Tampilkan pesan error */}
