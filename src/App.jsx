@@ -44,7 +44,7 @@ function App() {
         <AuthProvider>
             <>
                 {isAdminPage ? (
-                    <div className="flex flex-col min-h-screen">
+                    <div className="flex flex-col min-h-screen bg-green-500">
                         <HeaderAdmin toggleSidebar={toggleSidebar} />
                         <div className="flex flex-1">
                             <SidebarAdmin isSidebarVisible={isSidebarVisible} toggleSidebar={toggleSidebar} />
